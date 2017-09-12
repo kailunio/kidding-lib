@@ -47,7 +47,7 @@ public class Kidding {
 
         // 初始化Preference
         PreferenceHelper.init(app);
-        cProxy = PreferenceHelper.instance().getString("key");
+        cProxy = PreferenceHelper.instance().getString(PreferenceHelper.KEY_IPV4);
 
         this.app = app;
         this.receiver = receiver;

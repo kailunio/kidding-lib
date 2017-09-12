@@ -15,6 +15,8 @@ import org.jetbrains.annotations.NotNull;
 
     public static final String PREFERENCE_FILE_NAME = "kidding_pref";
 
+    public static final String KEY_IPV4 = "ipv4";
+
     private SharedPreferences sharedPreferences = null;
 
     private static PreferenceHelper INSTANCE;

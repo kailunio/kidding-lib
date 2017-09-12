@@ -28,7 +28,7 @@ public class AdbReceiver extends BroadcastReceiver {
         // 持久化
         SharedPreferences sp = PreferenceHelper.instance().getSharedPreferences();
         SharedPreferences.Editor spEditor = sp.edit();
-        spEditor.putString("ipv4", ipv4);
+        spEditor.putString(PreferenceHelper.KEY_IPV4, ipv4);
         spEditor.apply();
 
         // 提示用户
