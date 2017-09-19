@@ -29,6 +29,7 @@ public class Kidding {
     private Application app = null;
     private AdbReceiver receiver = null;
     private String cProxy = "";
+    private String defaultProxy = "";
 
     /**
      * 启动Kidding的Receiver
@@ -47,7 +48,12 @@ public class Kidding {
 
         // 初始化Preference
         PreferenceHelper.init(app);
-        cProxy = PreferenceHelper.instance().getString(PreferenceHelper.KEY_IPV4);
+        String proxy = PreferenceHelper.instance().getString(PreferenceHelper.KEY_IPV4);
+        if (!TextUtils.isEmpty(proxy)) {
+            cProxy = proxy;
+        } else {
+            cProxy = getDefaultProxy();
+        }
 
         this.app = app;
         this.receiver = receiver;
@@ -76,11 +82,21 @@ public class Kidding {
         return app;
     }
 
+    public void setDefaultProxy(@NotNull String proxy) {
+        this.defaultProxy = proxy;
+    }
+
+    @NotNull
+    public String getDefaultProxy() {
+        return defaultProxy;
+    }
+
+    @NotNull
     public String getCurrentProxy() {
         return cProxy;
     }
 
-    public void modifyCurrentProxy(String proxy) {
+    public void modifyCurrentProxy(@NotNull String proxy) {
         cProxy = proxy;
     }
 
